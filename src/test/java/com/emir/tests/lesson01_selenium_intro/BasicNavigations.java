@@ -57,7 +57,7 @@ public class BasicNavigations {
         System.out.println("driver.getTitle() = " + driver.getTitle());
 
         // Close the current browser window
-        driver.close();
+        //driver.close();
 
         // Quit the WebDriver session
         driver.quit();
