@@ -24,6 +24,9 @@ public class Zero_Bank_Header_Verification {
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
 
+        // Maximize the window for better visibility
+        driver.manage().window().maximize();
+
         // Navigate to Zero Bank website
         driver.get(ConfigurationReader.getProperty("env.zero"));
 
