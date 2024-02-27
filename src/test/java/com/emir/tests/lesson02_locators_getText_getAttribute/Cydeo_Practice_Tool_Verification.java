@@ -29,7 +29,7 @@ public class Cydeo_Practice_Tool_Verification {
         String currentURL = driver.getCurrentUrl();
 
         // Verify if URL contains "cydeo" and print the result
-        if(currentURL.contains("cydeo")){
+        if(currentURL.contains(ConfigurationReader.getProperty("expectedData.cydeo2"))){
             System.out.println("URL Verification Passed!");
         } else {
             System.out.println("URL Verification Failed");
@@ -39,7 +39,7 @@ public class Cydeo_Practice_Tool_Verification {
         String currentTitle = driver.getTitle();
 
         // Verify if title equals "Practice" and print the result
-        if(currentTitle.equals("Practice")){
+        if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.title"))){
             System.out.println("Title Verification Passed!");
         } else {
             System.out.println("Title Verification Failed");
