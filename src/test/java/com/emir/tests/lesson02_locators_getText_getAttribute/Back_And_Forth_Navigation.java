@@ -24,6 +24,9 @@ public class Back_And_Forth_Navigation {
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
 
+        // Maximize the window for better visibility
+        driver.manage().window().maximize();
+
         // Navigate to the Cydeo Practice Tool website
         driver.get(ConfigurationReader.getProperty("env.practice"));
 

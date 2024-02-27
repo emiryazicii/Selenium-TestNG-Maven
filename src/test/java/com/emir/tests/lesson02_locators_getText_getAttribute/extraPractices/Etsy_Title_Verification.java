@@ -26,6 +26,9 @@ public class Etsy_Title_Verification {
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
 
+        // Maximize the window for better visibility
+        driver.manage().window().maximize();
+
         // Navigate to Etsy website
         driver.get(ConfigurationReader.getProperty("env.etsy"));
 

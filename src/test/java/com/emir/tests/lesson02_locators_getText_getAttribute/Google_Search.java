@@ -25,6 +25,9 @@ public class Google_Search {
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
 
+        // Maximize the window for better visibility
+        driver.manage().window().maximize();
+
         // Navigate to Google homepage
         driver.get(ConfigurationReader.getProperty("env.google"));
 

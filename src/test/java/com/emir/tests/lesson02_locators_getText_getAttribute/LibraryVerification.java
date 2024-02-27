@@ -25,6 +25,9 @@ public class LibraryVerification {
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
 
+        // Maximize the window for better visibility
+        driver.manage().window().maximize();
+
         // Navigate to the library login page
         driver.get(ConfigurationReader.getProperty("env.library"));
 
