@@ -35,7 +35,7 @@ public class Back_And_Forth_Navigation {
         String currentTitle = driver.getTitle();
 
         // Verify if title equals "No A/B Test" and print the result
-        if(currentTitle.equals("No A/B Test")){
+        if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.practice"))){
             System.out.println("Title Verification Passed!");
         } else {
             System.out.println("Title Verification Failed");
@@ -48,7 +48,7 @@ public class Back_And_Forth_Navigation {
         currentTitle = driver.getTitle();
 
         // Verify if title equals "Practice" and print the result
-        if(currentTitle.equals("Practice")){
+        if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.title"))){
             System.out.println("Title Verification Passed!");
         } else {
             System.out.println("Title Verification Failed");
