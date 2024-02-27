@@ -42,7 +42,7 @@ public class LibraryVerification {
 
         // Find the alert message element by XPath and verify its text
         WebElement alertMessage = driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[2]/div"));
-        if(alertMessage.getText().equals("Sorry, Wrong Email or Password")){
+        if(alertMessage.getText().equals(ConfigurationReader.getProperty("expectedData.login3"))){
             System.out.println("Verification Passed!");
         } else {
             System.out.println("Verification Failed");
