@@ -73,7 +73,8 @@ public class WindowHandlePractice {
         }
 
         // Assert that the title contains "Etsy"
-        Assert.assertTrue(driver.getTitle().contains(ConfigurationReader.getProperty("expectedData.etsy3")));
+        //Assert.assertTrue(driver.getTitle().contains(ConfigurationReader.getProperty("expectedData.etsy3")));
+        Assert.assertTrue(BrowserUtils.verifyTitleContains(driver,"Etsy"));
     }
 
     /**
