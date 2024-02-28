@@ -35,6 +35,30 @@ public class BrowserUtils {
         // Return whether the title contains the expectedTitle
         return driver.getTitle().contains(expectedTitle);
     }
+
+    /**
+     * Verifies if the title of the current page matches the expected title.
+     *
+     * @param driver        WebDriver instance.
+     * @param expectedTitle Expected title of the page.
+     * @return true if the title matches the expected title, false otherwise.
+     */
+    public static boolean verifyTitle(WebDriver driver, String expectedTitle) {
+        // Compare the current title with the expected title
+        return driver.getTitle().equals(expectedTitle);
+    }
+
+    /**
+     * Verifies if the title of the current page contains the expected text.
+     *
+     * @param driver          WebDriver instance.
+     * @param expectedInTitle The text expected to be contained in the title.
+     * @return true if the title contains the expected text, false otherwise.
+     */
+    public static boolean verifyTitleContains(WebDriver driver, String expectedInTitle) {
+        // Check if the current title contains the expected text
+        return driver.getTitle().contains(expectedInTitle);
+    }
 }
 /*
 TC #2: Create utility method
@@ -47,4 +71,17 @@ Method info:
 • Arg1: WebDriver
 • Arg2: String expectedInUrl
 • Arg3: String expectedTitle
+ */
+
+/*
+TC #3: Create utility method
+1. Create a new method for title verification
+2. Create a method to make title verification logic re-usable
+3. When method is called, it should simply verify expected title with actual
+title
+Method info:
+• Name: verifyTitle()
+• Return type: void
+• Arg1: WebDriver
+• Arg2: String expectedTitle
  */
