@@ -1,5 +1,6 @@
 package com.emir.tests.lesson07_webtables_utilities_javafaker;
 
+import com.emir.utilities.BrowserUtils;
 import com.emir.utilities.ConfigurationReader;
 import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,11 +21,10 @@ public class WindowHandlePractice {
     WebDriver driver;
 
     /**
-     * Setup method to initialize the WebDriver and navigate to Amazon website.
+     * Setup method to initialize the WebDriver and navigate to the Amazon website.
      */
     @BeforeMethod
-    public void setupMethod(){
-
+    public void setupMethod() {
         // Initialize WebDriver
         driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
 
@@ -42,8 +42,7 @@ public class WindowHandlePractice {
      * Teardown method to quit the WebDriver after each test method execution.
      */
     @AfterMethod
-    public void TearDown(){
-
+    public void TearDown() {
         // Quit WebDriver
         driver.quit();
     }
@@ -53,8 +52,7 @@ public class WindowHandlePractice {
      * It opens new tabs using JavaScriptExecutor, switches to the tab where Etsy.com is open, and asserts the title.
      */
     @Test
-    public void testing_window_handles(){
-
+    public void testing_window_handles() {
         // Open new tabs using JavaScriptExecutor
         ((JavascriptExecutor) driver).executeScript("window.open('http://google.com','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('http://etsy.com','_blank');");
@@ -68,7 +66,7 @@ public class WindowHandlePractice {
             // Switch to the window
             driver.switchTo().window(eachHandle);
             // Check if the current URL contains Etsy.com
-            if(driver.getCurrentUrl().contains(ConfigurationReader.getProperty("expectedData.etsy2"))){
+            if (driver.getCurrentUrl().contains(ConfigurationReader.getProperty("expectedData.etsy2"))) {
                 // Break the loop if Etsy.com is found
                 break;
             }
@@ -76,6 +74,21 @@ public class WindowHandlePractice {
 
         // Assert that the title contains "Etsy"
         Assert.assertTrue(driver.getTitle().contains(ConfigurationReader.getProperty("expectedData.etsy3")));
+    }
+
+    /**
+     * Another test method to practice window handling using BrowserUtils.
+     * It opens new tabs using JavaScriptExecutor and asserts the title using BrowserUtils.
+     */
+    @Test
+    public void testing_window_handles2() {
+        // Open new tabs using JavaScriptExecutor
+        ((JavascriptExecutor) driver).executeScript("window.open('http://google.com','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('http://etsy.com','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('http://facebook.com','_blank');");
+
+        // Assert that the title contains "Etsy" using BrowserUtils
+        Assert.assertTrue(BrowserUtils.switchWindowAndVerify(driver, "etsy", "Etsy"));
     }
 }
 /*
