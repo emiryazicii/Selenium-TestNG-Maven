@@ -2,6 +2,7 @@ package com.emir.tests.lesson07_webtables_utilities_javafaker;
 
 import com.emir.utilities.BrowserUtils;
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Crm_Login;
 import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -67,6 +68,38 @@ public class LoginScenario {
         // Assert that the title of the page is as expected (Portal)
         Assert.assertTrue(BrowserUtils.verifyTitle(driver, ConfigurationReader.getProperty("expected.title.crm")));
     }
+
+    /**
+     * Test case to perform CRM login using default credentials.
+     */
+    @Test
+    public void test_login2() {
+        // Perform CRM login using default credentials
+        Crm_Login.login_crm(driver);
+
+        // Wait for 3 seconds
+        BrowserUtils.sleep(3);
+
+        // Assert that the title of the page is as expected
+        Assert.assertTrue(BrowserUtils.verifyTitle(driver, ConfigurationReader.getProperty("expected.title.crm")));
+    }
+
+    /**
+     * Test case to perform CRM login using custom credentials.
+     */
+    @Test
+    public void testing_login3() {
+        // Perform CRM login using custom credentials
+        Crm_Login.login_crm(driver, ConfigurationReader.getProperty("username.login"), ConfigurationReader.getProperty("password.login"));
+
+        // Wait for 3 seconds
+        BrowserUtils.sleep(3);
+
+        // Assert that the title of the page is as expected
+        Assert.assertTrue(BrowserUtils.verifyTitle(driver, ConfigurationReader.getProperty("expected.title.crm")));
+    }
+
+
 }
 /*
 TC #4: Login scenario
