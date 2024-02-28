@@ -59,6 +59,23 @@ public class BrowserUtils {
         // Check if the current title contains the expected text
         return driver.getTitle().contains(expectedInTitle);
     }
+
+    /**
+     * Utility method to pause the execution for a specified number of seconds.
+     *
+     * @param seconds The number of seconds to sleep.
+     */
+    public static void sleep(int seconds) {
+        // Convert seconds to milliseconds
+        seconds *= 1000;
+        try {
+            // Sleep for the specified number of milliseconds
+            Thread.sleep(seconds);
+        } catch (InterruptedException e) {
+            // If interrupted while sleeping, catch and ignore the exception
+        }
+    }
+
 }
 /*
 TC #2: Create utility method
