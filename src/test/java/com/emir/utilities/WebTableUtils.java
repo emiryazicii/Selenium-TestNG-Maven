@@ -27,8 +27,8 @@ public class WebTableUtils {
     /**
      * Verifies if the order date of a customer matches the expected order date.
      *
-     * @param driver           WebDriver instance.
-     * @param customerName     The name of the customer whose order date needs to be verified.
+     * @param driver            WebDriver instance.
+     * @param customerName      The name of the customer whose order date needs to be verified.
      * @param expectedOrderDate The expected order date of the customer.
      * @return true if the actual order date matches the expected order date, false otherwise.
      */
@@ -39,7 +39,25 @@ public class WebTableUtils {
         // Return true if the actual order date matches the expected order date, false otherwise
         return orderDateCell.getText().equals(expectedOrderDate);
     }
+
+    /**
+     * Retrieves the email of a person from the specified table using their first name.
+     *
+     * @param driver    WebDriver instance.
+     * @param tableNum  The table number in the HTML (e.g., "1", "2", etc.).
+     * @param firstName The first name of the person whose email needs to be retrieved.
+     * @return The email of the person as a String.
+     */
+    public static String getEmailFromTable(WebDriver driver, String tableNum, String firstName) {
+        // Construct the XPath to locate the email cell based on the table number and first name
+        String xpath = "//table[@id='table" + tableNum + "']//tr[.='" + firstName + "']/following-sibling::td[1]";
+        // Find the email cell using the constructed XPath
+        WebElement emailCell = driver.findElement(By.xpath(xpath));
+        // Return the text of the email cell
+        return emailCell.getText();
+    }
 }
+
 /*
 TC #2: Web table practice Task1 cont.
 1. Create a new class called WebTableUtils.
@@ -51,6 +69,8 @@ Method #1 info:
 • Arg2: String costumerName
 This method should accept a costumerName and return the costumer order date
 as a String.
+
+
 Method #2 info:
 • Name: orderVerify ()
 • Return type: boolean
@@ -59,4 +79,15 @@ Method #2 info:
 • Arg3: String expectedOrderDate
 This method should accept above mentioned arguments and internally verify
 expectedOrderDate matching actualOrderDate
+
+
+TC #3: Create a custom method
+1- Open a chrome browser
+2- Go to: https://practice.cydeo.com/tables
+3- Write custom method:
+• Method name: getTableGetEmail()
+• Return type: String
+• Arg1: WebDriver driver
+• Arg2: String tableNum
+• Arg3: String firstName
  */
