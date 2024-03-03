@@ -14,41 +14,57 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+/**
+ * A test class to perform Bing search.
+ */
 public class BingSearch {
 
     WebDriver driver;
 
+    /**
+     * Setup method to initialize the WebDriver and navigate to the Bing search page.
+     */
     @BeforeMethod
-    public void setupMethod(){
-
+    public void setupMethod() {
+        // Initialize WebDriver
         driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
 
+        // Maximize window
         driver.manage().window().maximize();
 
+        // Set implicit wait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
+        // Navigate to the Bing search page
         driver.get(ConfigurationReader.getProperty("env.bing"));
     }
 
+    /**
+     * Teardown method to quit the WebDriver after each test method execution.
+     */
     @AfterMethod
-    public void tearDown(){
-
+    public void tearDown() {
+        // Quit WebDriver
         driver.quit();
     }
 
+    /**
+     * Test method to perform a Bing search and verify the title.
+     */
     @Test
-    public void test_bing_search(){
-
+    public void test_bing_search() {
+        // Find the search box and enter the search keyword
         WebElement searchBox = driver.findElement(By.xpath("//textarea[@id='sb_form_q']"));
-
         searchBox.sendKeys(ConfigurationReader.getProperty("searchData.bing"));
 
+        // Wait for 2 seconds
         BrowserUtils.sleep(2);
 
+        // Press Enter key
         searchBox.sendKeys(Keys.ENTER);
 
-        Assert.assertEquals(driver.getTitle(),ConfigurationReader.getProperty("searchData.bing")+" - Search");
-
+        // Verify the title of the search results page
+        Assert.assertEquals(driver.getTitle(), ConfigurationReader.getProperty("searchData.bing") + " - Search");
     }
 }
 /*
