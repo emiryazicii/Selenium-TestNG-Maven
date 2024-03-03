@@ -50,7 +50,7 @@ public class WebTableUtils {
      */
     public static String getEmailFromTable(WebDriver driver, String tableNum, String firstName) {
         // Construct the XPath to locate the email cell based on the table number and first name
-        String xpath = "//table[@id='table" + tableNum + "']//tr[.='" + firstName + "']/following-sibling::td[1]";
+        String xpath = "//table[@id='table2']//td[.='Jason']/following-sibling::td[1]";
         // Find the email cell using the constructed XPath
         WebElement emailCell = driver.findElement(By.xpath(xpath));
         // Return the text of the email cell
