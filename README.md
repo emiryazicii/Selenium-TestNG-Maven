@@ -172,9 +172,6 @@
     - **Selenium WebDriver vs. Browser Driver**
         - Selenium WebDriver: - Is actually the name of the tool - Collection of libraries that allows us to automate browsers.
         - Browser Driver (is the translator) - The browser driver does not come in the Selenium library - we need to set it up separately. - If we are using WebDriverManager (BoniGarcia) easily sets up our driver - If we are NOT using WebDriverManager, we have to download our browser drivers separately.
-        - Without BoniGarcia
-        
-        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/b97672af-9f5a-4c8d-9249-3180491ab23c/Untitled.png)
         
         - **P.I.Q:** **If the browser version is changed and your test is failing, how would you fix it?**
             
@@ -482,13 +479,7 @@
         - DIFFERENCE XPATH AND CSS
             
             ***Xpath covers everything that you can do in CSS***
-            
-            [Untitled Database](https://www.notion.so/7de21f1645cc4c4391c459678d568686?pvs=21)
-            
-        - Locators Summary in One Page
-            
-            [Locators_Summary.pdf](https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/a2e48fed-954e-404a-9d2c-93353e185c73/Locators_Summary.pdf)
-            
+           
     - **Which method do we use for locating the List of WebElements?**
         
         ```java
@@ -518,9 +509,7 @@
         
         2. no action will happen but we can get ElementNotInteractableException: element not interactable
         
-        </aside>
-        
-        !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/9e45f815-f393-4a96-a544-14c41eae4943/Screenshot_2021-03-26_at_13.16.57.png
+  
         
     - **Checkboxes**
         
@@ -534,12 +523,6 @@
         System.out.println("checkbox2.isSelected() = "+ checkbox2.isSelected());
         
         ```
-        
-        !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/935bc16a-2b3c-4fe1-9beb-eb90cf44d442/Screenshot_2021-03-26_at_13.03.50.png
-        
-        - List of checkboxes
-            
-            !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/020572be-142e-49ce-8ec7-02a98f4517fb/Screenshot_2021-03-26_at_13.08.41.png
             
         - **P.I.Q: How do you handle checkboxes and radio buttons?**
             - First, we locate then we can click.
@@ -572,8 +555,6 @@
             
         - **SELECT methods**
             
-            !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/e035018f-10dc-4060-a8f6-66b0bc0c73d3/Screenshot_2021-03-26_at_13.43.35.png
-            
             **getOptions()** --> returns all the available options from the dropdown list.
             
             **getFirstSelectedOption()**--> return WebElement, default/current selected option
@@ -589,9 +570,6 @@
             - If we don’t have a select tag, we locate the dropdown just like any other WebElements and see options by clicking or hovering over it.
             - To get all options from the dropdown, we can use a common locator between them(exp:classname, tagname, etc)then we can use List methods to get the size and expected options from the list.
             - we use the click() method to click different options, we can either locate the option separately or use the index of the option from the list.
-        - **Multiple Dropdown Selection**
-            
-            !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/c88acfde-9de2-4e91-b61e-e2d4086c96cb/Screenshot_2021-03-26_at_13.57.58.png
             
         - **P.I.Q: How do you handle Dropdown?**
             
@@ -717,8 +695,6 @@
             connection is important
             
             parameter order is important 
-            
-            !https://prod-files-secure.s3.us-west-2.amazonaws.com/1eb2a1fe-e6d4-4a14-a4e4-0020230f85c0/1ed1df69-b2cd-4957-858f-cf8ad39a248c/Screenshot_2021-03-26_at_23.24.52.png
             
             - Data Provider DDT
                 
@@ -1106,12 +1082,6 @@
         
         Actions actions = new Actions(Driver.getDriver());
         ```
-        
-        [Keyboard](https://www.selenium.dev/documentation/en/webdriver/keyboard/)
-        
-        - SendKeys Enum
-            
-            https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/Keys.html
             
     - **JAVASCRIPT EXECUTOR**
         - What is JavaScriptExecutor?
