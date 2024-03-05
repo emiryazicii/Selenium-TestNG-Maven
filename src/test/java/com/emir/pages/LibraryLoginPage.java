@@ -29,4 +29,16 @@ public class LibraryLoginPage {
      */
     @FindBy(id = "inputEmail-error")
     public WebElement fieldRequiredErrorMessage;
+
+    /**
+     * WebElement representing the email input box.
+     */
+    @FindBy(id = "inputEmail")
+    public WebElement emailInputBox;
+
+    /**
+     * WebElement representing the invalid email error message.
+     */
+    @FindBy(id = "inputEmail-error")
+    public WebElement invalidEmailErrorMessage;
 }
