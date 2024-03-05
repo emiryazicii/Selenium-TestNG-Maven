@@ -45,7 +45,7 @@ public class LibraryLoginPage {
     /**
      * WebElement representing the password input box.
      */
-    @FindBy(id = "password")
+    @FindBy(id = "inputPassword")
     public WebElement passwordInputBox;
 
     /**
