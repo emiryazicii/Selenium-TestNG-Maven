@@ -15,6 +15,9 @@ import org.testng.annotations.Test;
  */
 public class ActionsPractices {
 
+    // Instance variable to hold the Actions object
+    Actions actions;
+
     /**
      * Method to set up the test environment before each test method.
      */
@@ -22,6 +25,9 @@ public class ActionsPractices {
     public void setupMethod(){
         // Opening the drag and drop circles page URL
         Driver.getDriver().get(ConfigurationReader.getProperty("env.dragAndDrop"));
+
+        // Initializing the Actions object
+        actions = new Actions(Driver.getDriver());
     }
 
     /**
@@ -49,10 +55,11 @@ public class ActionsPractices {
      */
     @Test
     public void test_text_after_drag_and_drop(){
-        Actions actions = new Actions(Driver.getDriver());
+
         // Locating the big circle and small circle elements
         WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
         WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+
         // Performing the drag and drop action
         actions.clickAndHold(smallCircle)
                 .pause(1000)
@@ -60,6 +67,7 @@ public class ActionsPractices {
                 .pause(1000)
                 .release()
                 .perform();
+
         // Verifying the text in the big circle after drag and drop
         Assert.assertEquals(bigCircle.getText(), ConfigurationReader.getProperty("expected.text2"));
     }
@@ -69,15 +77,17 @@ public class ActionsPractices {
      */
     @Test
     public void test_text_after_click_and_hold(){
-        Actions actions = new Actions(Driver.getDriver());
+
         // Locating the big circle and small circle elements
         WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
         WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+
         // Performing the click and hold action
         actions.clickAndHold(smallCircle)
                 .pause(1000)
                 .moveToElement(Driver.getDriver().findElement(By.linkText("CYDEO")))
                 .perform();
+
         // Verifying the text in the big circle after click and hold
         Assert.assertEquals(bigCircle.getText(), ConfigurationReader.getProperty("expected.text3"));
     }
@@ -87,16 +97,18 @@ public class ActionsPractices {
      */
     @Test
     public void test_text_after_drag_and_drop_outside_of_the_big_circle(){
-        Actions actions = new Actions(Driver.getDriver());
+
         // Locating the big circle and small circle elements
         WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
         WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+
         // Performing the drag and drop outside of the big circle
         actions.clickAndHold(smallCircle)
                 .pause(1000)
                 .moveToElement(Driver.getDriver().findElement(By.linkText("CYDEO")))
                 .release()
                 .perform();
+
         // Verifying the text in the big circle after drag and drop outside of the big circle
         Assert.assertEquals(bigCircle.getText(), ConfigurationReader.getProperty("expected.text4"));
     }
@@ -106,16 +118,18 @@ public class ActionsPractices {
      */
     @Test
     public void test_text_after_drag_and_hold_inside_of_the_big_circle(){
-        Actions actions = new Actions(Driver.getDriver());
+
         // Locating the big circle and small circle elements
         WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
         WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+
         // Performing the drag and hold inside of the big circle
         actions.clickAndHold(smallCircle)
                 .pause(1000)
                 .moveToElement(bigCircle)
                 .pause(1000)
                 .perform();
+
         // Verifying the text in the big circle after drag and hold inside of the big circle
         Assert.assertEquals(bigCircle.getText(), ConfigurationReader.getProperty("expected.text5"));
     }
