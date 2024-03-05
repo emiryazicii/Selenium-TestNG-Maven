@@ -41,4 +41,16 @@ public class LibraryLoginPage {
      */
     @FindBy(id = "inputEmail-error")
     public WebElement invalidEmailErrorMessage;
+
+    /**
+     * WebElement representing the password input box.
+     */
+    @FindBy(id = "password")
+    public WebElement passwordInputBox;
+
+    /**
+     * WebElement representing the message for wrong email or password.
+     */
+    @FindBy(xpath = "//div[.='Sorry, Wrong Email or Password']")
+    public WebElement wrongEmailOrPasswordMessage;
 }
