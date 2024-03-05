@@ -31,9 +31,13 @@ public class UploadTest {
 
         chooseFileButton.sendKeys("C:\\Users\\emirt\\Downloads\\Selenium_interview_questions (1).docx");
 
-        WebElement confirmationMessage = Driver.getDriver().findElement(By.xpath("//h3"));
+        WebElement uploadButton = Driver.getDriver().findElement(By.id("file-submit"));
 
-        Assert.assertTrue(confirmationMessage.isDisplayed());
+        uploadButton.click();
+
+        WebElement fileUploadedHeader = Driver.getDriver().findElement(By.xpath("//h3"));
+
+        Assert.assertTrue(fileUploadedHeader.isDisplayed());
 
     }
 }
