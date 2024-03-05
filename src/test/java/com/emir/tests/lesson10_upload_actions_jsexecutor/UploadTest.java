@@ -1,6 +1,5 @@
 package com.emir.tests.lesson10_upload_actions_jsexecutor;
 
-import com.emir.utilities.BrowserUtils;
 import com.emir.utilities.ConfigurationReader;
 import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
@@ -10,35 +9,45 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+/**
+ * Test class for uploading files.
+ */
 public class UploadTest {
 
+    /**
+     * Method to set up the test environment before each test method.
+     */
     @BeforeMethod
-    public void setupMethod(){
-
+    public void setupMethod() {
+        // Opening the upload page URL
         Driver.getDriver().get(ConfigurationReader.getProperty("env.upload"));
     }
 
+    /**
+     * Method to clean up the test environment after each test method.
+     */
     @AfterMethod
-    public void tearDown(){
-
+    public void tearDown() {
+        // Closing the browser
         Driver.closeDriver();
     }
 
+    /**
+     * Test case for uploading a file.
+     */
     @Test
-    public void testing_upload(){
-
+    public void testing_upload() {
+        // Finding and filling the choose file button with the file path
         WebElement chooseFileButton = Driver.getDriver().findElement(By.id("file-upload"));
-
         chooseFileButton.sendKeys("C:\\Users\\emirt\\Downloads\\Selenium_interview_questions (1).docx");
 
+        // Clicking the upload button
         WebElement uploadButton = Driver.getDriver().findElement(By.id("file-submit"));
-
         uploadButton.click();
 
+        // Verifying if the file uploaded header is displayed
         WebElement fileUploadedHeader = Driver.getDriver().findElement(By.xpath("//h3"));
-
         Assert.assertTrue(fileUploadedHeader.isDisplayed());
-
     }
 }
 /*
