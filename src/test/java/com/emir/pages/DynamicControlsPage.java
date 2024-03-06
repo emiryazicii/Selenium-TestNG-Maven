@@ -40,7 +40,7 @@ public class DynamicControlsPage {
      * WebElement representing the message indicating that the element is gone.
      */
     @FindBy(id = "message")
-    public WebElement itsGoneMessage;
+    public WebElement message;
 
     /**
      * WebElement representing the Enable button.
