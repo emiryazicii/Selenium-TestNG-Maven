@@ -1,7 +1,11 @@
 package com.emir.utilities;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 /**
@@ -76,29 +80,29 @@ public class BrowserUtils {
         }
     }
 
-}
-/*
-TC #2: Create utility method
-1. Create a new class called BrowserUtils
-2. Create a method to make Task1 logic re-usable
-3. When method is called, it should switch window and verify title.
-Method info:
-• Name: switchWindowAndVerify
-• Return type: void
-• Arg1: WebDriver
-• Arg2: String expectedInUrl
-• Arg3: String expectedTitle
- */
+    /**
+     * A utility method to wait for the invisibility of a WebElement on the page.
+     *
+     * @param target The WebElement to wait for invisibility.
+     */
+    public static void waitForInvisibilityOf(WebElement target) {
+        // Initializing WebDriverWait with a timeout of 15 seconds
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
 
-/*
-TC #3: Create utility method
-1. Create a new method for title verification
-2. Create a method to make title verification logic re-usable
-3. When method is called, it should simply verify expected title with actual
-title
-Method info:
-• Name: verifyTitle()
-• Return type: void
-• Arg1: WebDriver
-• Arg2: String expectedTitle
- */
+        // Waiting until the target WebElement becomes invisible
+        wait.until(ExpectedConditions.invisibilityOf(target));
+    }
+
+    /**
+     * A utility method to wait until the title of the current page contains the specified title string.
+     *
+     * @param title The title string to wait for.
+     */
+    public static void waitForTitleContains(String title) {
+        // Initializing WebDriverWait with a timeout of 15 seconds
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+
+        // Waiting until the title of the current page contains the specified title string
+        wait.until(ExpectedConditions.titleContains(title));
+    }
+}
