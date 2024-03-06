@@ -12,8 +12,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class FindElementByXpath {
 
-
-     //Main method to demonstrate finding elements by XPath and performing actions on them.
+    /**
+     * Main method to demonstrate finding elements by XPath and performing actions on them.
+     *
+     * @param args Command line arguments (not used in this example).
+     */
     public static void main(String[] args) {
 
         // Setup WebDriver for Chrome
@@ -35,6 +38,19 @@ public class FindElementByXpath {
         // Find the button by XPath and click on it
         WebElement button = driver.findElement(By.xpath("//button[@id='form_submit']"));
         button.click();
+
+        // Find the confirmation message by XPath
+        WebElement confirmationMessage = driver.findElement(By.xpath("//h4"));
+
+        // Trim both actual and expected messages before comparison
+        String actualMessage = confirmationMessage.getText().trim();
+        String expectedMessage = ConfigurationReader.getProperty("expected.message2").trim();
+
+        if (actualMessage.equals(expectedMessage)) {
+            System.out.println("Passed!");
+        } else {
+            System.out.println("Failed!");
+        }
 
         // Quit the WebDriver session
         driver.quit();
