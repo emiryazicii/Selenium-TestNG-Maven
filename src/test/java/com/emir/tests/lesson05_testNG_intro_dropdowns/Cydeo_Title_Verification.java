@@ -50,7 +50,7 @@ public class Cydeo_Title_Verification {
     @Test
     public void cydeo_title_verification(){
         // Verify title
-        Assert.assertEquals(driver.getTitle(), ConfigurationReader.getProperty("expectedData.cydeo"));
+        Assert.assertEquals(driver.getTitle(), ConfigurationReader.getProperty("expected.title.cydeo"));
     }
 }
 /*
