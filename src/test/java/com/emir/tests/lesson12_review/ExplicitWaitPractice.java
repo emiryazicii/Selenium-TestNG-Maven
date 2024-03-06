@@ -10,10 +10,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+/**
+ * Test class for practicing explicit waits using TestNG and Page Object Model (POM).
+ */
 public class ExplicitWaitPractice {
 
-    DynamicControlsPage dynamicControlsPage;
+    private DynamicControlsPage dynamicControlsPage;
 
+    /**
+     * Method to set up the test environment before each test method.
+     */
     @BeforeMethod
     public void setupMethod() {
         // Navigate to the Dynamic Controls page
@@ -22,12 +28,18 @@ public class ExplicitWaitPractice {
         dynamicControlsPage = new DynamicControlsPage();
     }
 
+    /**
+     * Method to clean up the test environment after each test method.
+     */
     @AfterMethod
     public void tearDown() {
         // Close the browser
         Driver.closeDriver();
     }
 
+    /**
+     * Test case to verify the functionality of removing a checkbox.
+     */
     @Test
     public void test_remove_checkbox() {
         // Click on the Remove button
@@ -49,6 +61,9 @@ public class ExplicitWaitPractice {
         Assert.assertTrue(dynamicControlsPage.message.isDisplayed());
     }
 
+    /**
+     * Test case to verify the functionality of enabling an input box.
+     */
     @Test
     public void test_enable_input_box() {
         // Click on the Enable button
@@ -66,7 +81,6 @@ public class ExplicitWaitPractice {
         Assert.assertEquals(dynamicControlsPage.message.getText(), ConfigurationReader.getProperty("expected.message"));
     }
 }
-
 /*
 TC #2: Explicit wait practice
 1- Open a chrome browser
