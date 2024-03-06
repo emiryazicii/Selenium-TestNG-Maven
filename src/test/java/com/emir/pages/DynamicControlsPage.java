@@ -41,4 +41,18 @@ public class DynamicControlsPage {
      */
     @FindBy(id = "message")
     public WebElement itsGoneMessage;
+
+    /**
+     * WebElement representing the Enable button.
+     */
+    @FindBy(xpath = "//button[.='Enable']")
+    public WebElement enableButton;
+
+    /**
+     * WebElement representing the input text box.
+     */
+    @FindBy(xpath = "//input[@type='text']")
+    public WebElement inputBox;
+
+
 }
