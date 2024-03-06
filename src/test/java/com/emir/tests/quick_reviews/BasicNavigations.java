@@ -10,11 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class BasicNavigations {
 
-    /**
-     * Main method to demonstrate basic navigations.
-     *
-     * @param args Command line arguments (not used in this example).
-     */
+
+     //Main method to demonstrate basic navigations.
     public static void main(String[] args) {
 
         // Setup WebDriver for Chrome
