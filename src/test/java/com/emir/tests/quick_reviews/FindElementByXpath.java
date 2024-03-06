@@ -39,8 +39,8 @@ public class FindElementByXpath {
         // Find the confirmation message by XPath
         WebElement confirmationMessage = driver.findElement(By.xpath("//h4"));
 
-        // Trim both actual and expected messages before comparison
-        String actualMessage = confirmationMessage.getText().trim();
+        // Both actual and expected messages for comparison
+        String actualMessage = confirmationMessage.getText();
         String expectedMessage = ConfigurationReader.getProperty("expected.message2").trim();
 
         // Compare the actual and expected messages
