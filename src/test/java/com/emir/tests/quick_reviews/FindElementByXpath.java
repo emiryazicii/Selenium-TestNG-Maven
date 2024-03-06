@@ -12,11 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class FindElementByXpath {
 
-    /**
-     * Main method to demonstrate finding elements by XPath and performing actions on them.
-     *
-     * @param args Command line arguments (not used in this example).
-     */
+
+     //Main method to demonstrate finding elements by XPath, performing actions on them, and retrieving element attributes.
     public static void main(String[] args) {
 
         // Setup WebDriver for Chrome
@@ -46,11 +43,15 @@ public class FindElementByXpath {
         String actualMessage = confirmationMessage.getText().trim();
         String expectedMessage = ConfigurationReader.getProperty("expected.message2").trim();
 
+        // Compare the actual and expected messages
         if (actualMessage.equals(expectedMessage)) {
             System.out.println("Passed!");
         } else {
             System.out.println("Failed!");
         }
+
+        // Retrieve and print the value of the name attribute of the confirmation message element
+        System.out.println("Value of the name attribute of the element: " + confirmationMessage.getAttribute("name"));
 
         // Quit the WebDriver session
         driver.quit();
