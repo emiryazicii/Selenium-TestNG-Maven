@@ -27,6 +27,6 @@ public class PracticeLoginPage {
     public WebElement password;
 
     // WebElement representing the login button
-    @FindBy(id = "wooden spoon")
+    @FindBy(id = "wooden_spoon")
     public WebElement loginButton;
 }
