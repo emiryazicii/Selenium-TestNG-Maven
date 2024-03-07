@@ -59,5 +59,14 @@ public class Iframe {
 
         // Assert that the element is displayed
         Assert.assertTrue(textArea.isDisplayed());
+
+        // Switch back to the default content
+        driver.switchTo().defaultContent();
+
+        // Find a link outside the iframe
+        WebElement homeLink = driver.findElement(By.linkText("Home"));
+
+        // Assert that the link is displayed
+        Assert.assertTrue(homeLink.isDisplayed());
     }
 }
