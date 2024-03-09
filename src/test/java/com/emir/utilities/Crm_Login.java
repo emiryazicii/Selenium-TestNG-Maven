@@ -1,7 +1,6 @@
 package com.emir.utilities;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -12,40 +11,38 @@ public class Crm_Login {
     /**
      * Performs CRM login using predefined username and password.
      *
-     * @param driver WebDriver instance.
      */
-    public static void login_crm(WebDriver driver) {
+    public static void login_crm() {
         // Find username input box and enter the predefined username
-        WebElement usernameBox = driver.findElement(By.name("USER_LOGIN"));
+        WebElement usernameBox = Driver.getDriver().findElement(By.name("USER_LOGIN"));
         usernameBox.sendKeys(ConfigurationReader.getProperty("username.login"));
 
         // Find password input box and enter the predefined password
-        WebElement passwordBox = driver.findElement(By.name("USER_PASSWORD"));
+        WebElement passwordBox = Driver.getDriver().findElement(By.name("USER_PASSWORD"));
         passwordBox.sendKeys(ConfigurationReader.getProperty("password.login"));
 
         // Find login button and click it
-        WebElement loginButton = driver.findElement(By.className("login-btn"));
+        WebElement loginButton = Driver.getDriver().findElement(By.className("login-btn"));
         loginButton.click();
     }
 
     /**
      * Performs CRM login using custom username and password.
      *
-     * @param driver   WebDriver instance.
      * @param username Custom username.
      * @param password Custom password.
      */
-    public static void login_crm(WebDriver driver, String username, String password) {
+    public static void login_crm(String username, String password) {
         // Find username input box and enter the custom username
-        WebElement usernameBox = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
+        WebElement usernameBox = Driver.getDriver().findElement(By.xpath("//input[@name='USER_LOGIN']"));
         usernameBox.sendKeys(username);
 
         // Find password input box and enter the custom password
-        WebElement passwordBox = driver.findElement(By.xpath("//input[@type='password']"));
+        WebElement passwordBox = Driver.getDriver().findElement(By.xpath("//input[@type='password']"));
         passwordBox.sendKeys(password);
 
         // Find login button and click it
-        WebElement loginButton = driver.findElement(By.className("login-btn"));
+        WebElement loginButton = Driver.getDriver().findElement(By.className("login-btn"));
         loginButton.click();
     }
 }
@@ -58,11 +55,9 @@ This method should have at least 2 overloaded versions.
 Method #1 info:
 • Name: login_crm()
 • Return type: void
-• Arg1: WebDriver
 Method #2 info:
 • Name: login_crm()
 • Return type: void
-• Arg1: WebDriver
-• Arg2: String username
-• Arg3: String password
+• Arg1: String username
+• Arg2: String password
  */

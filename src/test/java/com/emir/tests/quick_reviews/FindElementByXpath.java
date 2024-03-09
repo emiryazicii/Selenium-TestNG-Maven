@@ -1,7 +1,7 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +15,6 @@ public class FindElementByXpath {
 
      //Main method to demonstrate finding elements by XPath, performing actions on them, and retrieving element attributes.
     public static void main(String[] args) {
-
-        // Setup WebDriver for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

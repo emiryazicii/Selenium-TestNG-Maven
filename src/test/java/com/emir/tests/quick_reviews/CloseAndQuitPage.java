@@ -1,7 +1,6 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,9 +11,6 @@ public class CloseAndQuitPage {
 
     //Main method to demonstrate closing and quitting WebDriver.
     public static void main(String[] args) throws InterruptedException {
-
-        // Setup WebDriver for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

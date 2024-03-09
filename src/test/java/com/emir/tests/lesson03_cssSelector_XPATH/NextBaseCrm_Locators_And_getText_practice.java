@@ -1,7 +1,6 @@
 package com.emir.tests.lesson03_cssSelector_XPATH;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,9 +16,6 @@ public class NextBaseCrm_Locators_And_getText_practice {
      * @param args Command line arguments (not used in this example).
      */
     public static void main(String[] args) {
-
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();

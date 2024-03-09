@@ -1,7 +1,6 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -18,9 +17,6 @@ public class LibraryVerification {
      * @param args Command line arguments (not used in this example).
      */
     public static void main(String[] args) {
-
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();

@@ -1,7 +1,6 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute.extraPractices;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,9 +18,6 @@ public class Etsy_Title_Verification {
      * @throws InterruptedException if the thread sleep is interrupted.
      */
     public static void main(String[] args) throws InterruptedException {
-
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();

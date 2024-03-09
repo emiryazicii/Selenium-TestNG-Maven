@@ -1,7 +1,6 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +14,6 @@ public class FindElementByCssSelector {
 
      //Main method to demonstrate finding an element by CSS selector and verifying its text.
     public static void main(String[] args) {
-
-        // Setup WebDriver for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

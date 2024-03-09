@@ -1,7 +1,7 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,9 +13,6 @@ public class FullScreenMode {
 
      //Main method to demonstrate switching WebDriver to full-screen mode.
     public static void main(String[] args) {
-
-        // Setup WebDriver for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

@@ -1,7 +1,7 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,9 +15,6 @@ public class FindElementByLinkText {
 
      //Main method to demonstrate finding an element by link text and clicking on it.
     public static void main(String[] args) {
-
-        // Setup WebDriver for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();

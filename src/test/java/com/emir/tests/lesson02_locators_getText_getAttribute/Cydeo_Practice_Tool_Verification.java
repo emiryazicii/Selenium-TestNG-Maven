@@ -1,7 +1,6 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,9 +14,6 @@ public class Cydeo_Practice_Tool_Verification {
      * @param args Command line arguments (not used in this example).
      */
     public static void main(String[] args) {
-
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();

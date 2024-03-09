@@ -1,7 +1,6 @@
 package com.emir.tests.lesson01_selenium_intro;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -16,9 +15,6 @@ public class BasicNavigations {
      * @throws InterruptedException if the thread sleep is interrupted.
      */
     public static void main(String[] args) throws InterruptedException {
-
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
 
         // Create a ChromeDriver instance
         WebDriver driver = new ChromeDriver();
