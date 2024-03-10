@@ -2,9 +2,7 @@ package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
 import com.emir.utilities.Driver;
-import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
