@@ -9,7 +9,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 /**
@@ -24,15 +23,6 @@ public class ExplicitWaitPractice {
     public void setupMethod(){
         // Opening the explicit wait page URL
         Driver.getDriver().get(ConfigurationReader.getProperty("env.explicitWait2"));
-    }
-
-    /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-        // Closing the browser
-        Driver.closeDriver();
     }
 
     /**
@@ -55,6 +45,15 @@ public class ExplicitWaitPractice {
 
         // Verifying that the image is displayed
         Assert.assertTrue(dynamicLoad7Page.image.isDisplayed());
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

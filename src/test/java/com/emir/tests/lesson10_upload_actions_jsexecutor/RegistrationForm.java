@@ -29,15 +29,6 @@ public class RegistrationForm {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for testing registration form submission.
      */
     @Test
@@ -93,6 +84,15 @@ public class RegistrationForm {
         // Verifying the success message after registration
         WebElement confirmMessage = Driver.getDriver().findElement(By.xpath("//p"));
         Assert.assertTrue(confirmMessage.isDisplayed());
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

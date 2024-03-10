@@ -1,12 +1,10 @@
 package com.emir.tests.base;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import java.time.Duration;
 
 /**
  * This class serves as a base class for other test classes.
@@ -22,9 +20,7 @@ public abstract class TestBase {
      */
     @BeforeMethod
     public void setupMethod(){
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.google"));
     }
 
     /**
@@ -33,6 +29,6 @@ public abstract class TestBase {
      */
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+        Driver.getDriver().quit();
     }
 }

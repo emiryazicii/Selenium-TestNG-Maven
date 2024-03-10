@@ -31,15 +31,6 @@ public class ActionsPractices {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for verifying the default text in the big circle.
      */
     @Test
@@ -132,6 +123,15 @@ public class ActionsPractices {
 
         // Verifying the text in the big circle after drag and hold inside of the big circle
         Assert.assertEquals(bigCircle.getText(), ConfigurationReader.getProperty("expected.text5"));
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

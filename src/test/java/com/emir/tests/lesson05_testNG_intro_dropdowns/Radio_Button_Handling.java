@@ -1,34 +1,22 @@
 package com.emir.tests.lesson05_testNG_intro_dropdowns;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
 
 /**
  * This class contains a test case for handling radio buttons.
  */
 public class Radio_Button_Handling {
 
-    /**
-     * This is the main method which executes the test case.
-     * @param args Unused.
-     */
     public static void main(String[] args) {
 
-        // Setting up the WebDriver
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
         // Opening the specified URL
-        driver.get(ConfigurationReader.getProperty("env.radio_buttons"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.radio_buttons"));
 
         // Locating and clicking the "Hockey" radio button
-        WebElement hockeyButton = driver.findElement(By.xpath("//input[@id='hockey']"));
+        WebElement hockeyButton = Driver.getDriver().findElement(By.xpath("//input[@id='hockey']"));
         hockeyButton.click();
 
         // Verifying if the "Hockey" radio button is selected after clicking
@@ -39,7 +27,7 @@ public class Radio_Button_Handling {
         }
 
         // Quitting the WebDriver
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

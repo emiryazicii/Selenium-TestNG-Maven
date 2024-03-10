@@ -25,15 +25,6 @@ public class HoverTest {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for hovering over images.
      */
     @Test
@@ -64,6 +55,15 @@ public class HoverTest {
         // Verifying if the header for the third image is displayed
         WebElement headerImg3 = Driver.getDriver().findElement(By.xpath("//h5[.='name: user3']"));
         Assert.assertTrue(headerImg3.isDisplayed());
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

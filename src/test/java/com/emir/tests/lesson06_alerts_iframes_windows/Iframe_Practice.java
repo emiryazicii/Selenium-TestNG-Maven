@@ -1,23 +1,18 @@
 package com.emir.tests.lesson06_alerts_iframes_windows;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 /**
  * Test class to demonstrate iframe handling.
  */
 public class Iframe_Practice {
-
-    WebDriver driver;
 
     /**
      * Setup method to initialize WebDriver, maximize window, set implicit wait,
@@ -26,22 +21,7 @@ public class Iframe_Practice {
     @BeforeMethod
     public void setupMethod(){
 
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-        driver.get(ConfigurationReader.getProperty("env.iframe"));
-    }
-
-    /**
-     * Teardown method to quit the WebDriver instance after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-
-        driver.quit();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.iframe"));
     }
 
     /**
@@ -56,17 +36,26 @@ public class Iframe_Practice {
     @Test
     public void testing_iframe(){
 
-        driver.switchTo().frame("mce_0_ifr");
+        Driver.getDriver().switchTo().frame("mce_0_ifr");
 
-        WebElement text = driver.findElement(By.xpath("//p[.='Your content goes here.']"));
+        WebElement text = Driver.getDriver().findElement(By.xpath("//p[.='Your content goes here.']"));
 
         Assert.assertTrue(text.isDisplayed());
 
-        driver.switchTo().parentFrame();
+        Driver.getDriver().switchTo().parentFrame();
 
-        WebElement header = driver.findElement(By.xpath("//h3[.='An iFrame containing the TinyMCE WYSIWYG Editor']"));
+        WebElement header = Driver.getDriver().findElement(By.xpath("//h3[.='An iFrame containing the TinyMCE WYSIWYG Editor']"));
 
         Assert.assertTrue(header.isDisplayed());
 
+    }
+
+    /**
+     * Teardown method to quit the WebDriver instance after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+
+        Driver.closeDriver();
     }
 }

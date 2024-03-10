@@ -1,31 +1,19 @@
 package com.emir.tests.lesson04_findElements_checkboxes_radiobuttons;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
 
 /**
  * This class contains test cases for practicing XPath and CSS Selector locators.
  */
 public class XPATH_And_Css_Selector_Practices {
 
-    /**
-     * This is the main method which executes the test cases.
-     * @param args Unused.
-     */
     public static void main(String[] args) {
 
-        // Setting up the WebDriver
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
         // Opening the specified URL
-        driver.get(ConfigurationReader.getProperty("env.forgot_password"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.forgot_password"));
 
         //WebElement link = driver.findElement(By.xpath("//a[@class='nav-link']"));
         //WebElement link = driver.findElement(By.xpath("//a[text()='Home']"));
@@ -35,7 +23,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement link = driver.findElement(By.cssSelector("a[class='nav-link']"));
 
         // Locating "Home" link using CSS selector
-        WebElement link = driver.findElement(By.cssSelector("a[href='/']"));
+        WebElement link = Driver.getDriver().findElement(By.cssSelector("a[href='/']"));
         if (link.isDisplayed()){
             System.out.println("Passed for 'Home' link using CSS selector!");
         } else {
@@ -48,7 +36,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement header = driver.findElement(By.cssSelector("div[class='example']>h2"));
 
         // Locating "Forgot password" header using CSS selector
-        WebElement header = driver.findElement(By.cssSelector("div.example>h2"));
+        WebElement header = Driver.getDriver().findElement(By.cssSelector("div.example>h2"));
         if (header.isDisplayed()){
             System.out.println("Passed for 'Forgot password' header using CSS selector!");
         } else {
@@ -60,7 +48,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement text = driver.findElement(By.xpath("//label[text()='E-mail']"));
 
         // Locating "E-mail" text using CSS selector
-        WebElement text = driver.findElement(By.cssSelector("label[for='email']"));
+        WebElement text = Driver.getDriver().findElement(By.cssSelector("label[for='email']"));
         if(text.isDisplayed()){
             System.out.println("Passed for 'E-mail' text using CSS selector!");
         } else {
@@ -71,7 +59,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement box = driver.findElement(By.xpath("//input[@type='text']"));
 
         // Locating E-mail input box using XPath
-        WebElement box = driver.findElement(By.xpath("//input[contains(@pattern,'a-z')]"));
+        WebElement box = Driver.getDriver().findElement(By.xpath("//input[contains(@pattern,'a-z')]"));
         if (box.isDisplayed()){
             System.out.println("Passed for E-mail input box using XPath!");
         } else {
@@ -84,7 +72,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement button = driver.findElement(By.cssSelector("button#form_submit>i"));
 
         // Locating "Retrieve password" button using XPath
-        WebElement button = driver.findElement(By.cssSelector("button.radius>i"));
+        WebElement button = Driver.getDriver().findElement(By.cssSelector("button.radius>i"));
         if (button.isDisplayed()){
             System.out.println("Passed for 'Retrieve password' button using CSS selector!");
         } else {
@@ -96,7 +84,7 @@ public class XPATH_And_Css_Selector_Practices {
         //WebElement cydeo = driver.findElement(By.xpath("//a[@href='https://cydeo.com/']"));
 
         // Locating "Powered by Cydeo" text using XPath
-        WebElement cydeo = driver.findElement(By.cssSelector("div[style='text-align: center;']>a"));
+        WebElement cydeo = Driver.getDriver().findElement(By.cssSelector("div[style='text-align: center;']>a"));
         if(cydeo.isDisplayed()){
             System.out.println("Passed for 'Powered by Cydeo' text using CSS selector!");
         } else {
@@ -104,7 +92,7 @@ public class XPATH_And_Css_Selector_Practices {
         }
 
         // Quitting the WebDriver
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

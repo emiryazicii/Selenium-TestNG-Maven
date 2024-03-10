@@ -10,7 +10,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 public class DoubleClick_Practice {
@@ -22,15 +21,6 @@ public class DoubleClick_Practice {
     public void setupMethod() {
         // Opening the W3Schools page URL
         Driver.getDriver().get(ConfigurationReader.getProperty("env.w3"));
-    }
-
-    /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
     }
 
     /**
@@ -58,6 +48,15 @@ public class DoubleClick_Practice {
 
         // Verifying that the paragraph's style attribute value contains "color: red;"
         Assert.assertTrue(w3Page.paragraph.getAttribute("style").contains(ConfigurationReader.getProperty("expected.attribute.value.part")));
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

@@ -16,52 +16,49 @@ public class BrowserUtils {
     /**
      * Switches to the window with the expected URL and verifies the expected title.
      *
-     * @param driver        WebDriver instance.
      * @param expectedURL   Expected URL to be found in the window.
      * @param expectedTitle Expected title of the window.
      * @return true if the title contains the expectedTitle, false otherwise.
      */
-    public static boolean switchWindowAndVerify(WebDriver driver, String expectedURL, String expectedTitle) {
+    public static boolean switchWindowAndVerify(String expectedURL, String expectedTitle) {
         // Get all window handles
-        Set<String> allHandles = driver.getWindowHandles();
+        Set<String> allHandles = Driver.getDriver().getWindowHandles();
 
         // Iterate through each handle
         for (String eachHandle : allHandles) {
             // Switch to the window
-            driver.switchTo().window(eachHandle);
+            Driver.getDriver().switchTo().window(eachHandle);
             // Check if the current URL contains the expectedURL
-            if (driver.getCurrentUrl().contains(expectedURL)) {
+            if (Driver.getDriver().getCurrentUrl().contains(expectedURL)) {
                 // If found, break the loop
                 break;
             }
         }
 
         // Return whether the title contains the expectedTitle
-        return driver.getTitle().contains(expectedTitle);
+        return Driver.getDriver().getTitle().contains(expectedTitle);
     }
 
     /**
      * Verifies if the title of the current page matches the expected title.
      *
-     * @param driver        WebDriver instance.
      * @param expectedTitle Expected title of the page.
      * @return true if the title matches the expected title, false otherwise.
      */
-    public static boolean verifyTitle(WebDriver driver, String expectedTitle) {
+    public static boolean verifyTitle(String expectedTitle) {
         // Compare the current title with the expected title
-        return driver.getTitle().equals(expectedTitle);
+        return Driver.getDriver().getTitle().equals(expectedTitle);
     }
 
     /**
      * Verifies if the title of the current page contains the expected text.
      *
-     * @param driver          WebDriver instance.
      * @param expectedInTitle The text expected to be contained in the title.
      * @return true if the title contains the expected text, false otherwise.
      */
-    public static boolean verifyTitleContains(WebDriver driver, String expectedInTitle) {
+    public static boolean verifyTitleContains(String expectedInTitle) {
         // Check if the current title contains the expected text
-        return driver.getTitle().contains(expectedInTitle);
+        return Driver.getDriver().getTitle().contains(expectedInTitle);
     }
 
     /**

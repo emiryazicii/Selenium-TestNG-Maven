@@ -1,50 +1,35 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class verifies login functionality on the library website using Selenium WebDriver.
  */
 public class LibraryVerification {
 
-    /**
-     * The main method to execute the library login verification test.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
-
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the library login page
-        driver.get(ConfigurationReader.getProperty("env.library"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.library"));
 
         // Find the username input element by class name and enter the username
-        WebElement username = driver.findElement(By.className("form-control"));
+        WebElement username = Driver.getDriver().findElement(By.className("form-control"));
         username.sendKeys(ConfigurationReader.getProperty("username.login3"));
 
         // Find the password input element by ID and enter the password
-        WebElement password = driver.findElement(By.id("inputPassword"));
+        WebElement password = Driver.getDriver().findElement(By.id("inputPassword"));
         password.sendKeys(ConfigurationReader.getProperty("password.login3"));
 
         // Find the sign-in button element by tag name and press ENTER to submit the form
-        WebElement button = driver.findElement(By.tagName("button"));
+        WebElement button = Driver.getDriver().findElement(By.tagName("button"));
         button.sendKeys(Keys.ENTER);
 
         // Find the alert message element by XPath and verify its text
-        WebElement alertMessage = driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[2]/div"));
+        WebElement alertMessage = Driver.getDriver().findElement(By.xpath("//*[@id=\"login-form\"]/div[2]/div"));
         if(alertMessage.getText().equals(ConfigurationReader.getProperty("expectedData.login3"))){
             System.out.println("Verification Passed!");
         } else {
@@ -52,7 +37,7 @@ public class LibraryVerification {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

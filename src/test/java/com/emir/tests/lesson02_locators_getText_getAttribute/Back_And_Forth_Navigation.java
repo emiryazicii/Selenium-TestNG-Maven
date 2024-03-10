@@ -1,41 +1,26 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class demonstrates back and forth navigation using Selenium WebDriver.
  */
 public class Back_And_Forth_Navigation {
 
-    /**
-     * The main method to execute the back and forth navigation test.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Setup WebDriverManager for Chrome
-        WebDriverManager.chromedriver().setup();
-
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the Cydeo Practice Tool website
-        driver.get(ConfigurationReader.getProperty("env.practice"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.practice"));
 
         // Find and click the link with partial text "A/B"
-        WebElement link = driver.findElement(By.partialLinkText("A/B"));
+        WebElement link = Driver.getDriver().findElement(By.partialLinkText("A/B"));
         link.click();
 
         // Get the current title after clicking the link
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         // Verify if title equals "No A/B Test" and print the result
         if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.practice"))){
@@ -45,10 +30,10 @@ public class Back_And_Forth_Navigation {
         }
 
         // Navigate back to the previous page
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
 
         // Get the current title after navigating back
-        currentTitle = driver.getTitle();
+        currentTitle = Driver.getDriver().getTitle();
 
         // Verify if title equals "Practice" and print the result
         if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.title"))){
@@ -58,7 +43,7 @@ public class Back_And_Forth_Navigation {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+       Driver.closeDriver();
     }
 }
 /*

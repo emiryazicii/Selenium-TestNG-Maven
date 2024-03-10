@@ -27,15 +27,6 @@ public class POM_Practices {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     * Closes the browser.
-     */
-    @AfterMethod
-    public void tearDown() {
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for verifying the presence of the required field error message.
      */
     @Test
@@ -73,6 +64,16 @@ public class POM_Practices {
         // Verify if the wrong email or password error message is displayed
         Assert.assertTrue(libraryLoginPage.wrongEmailOrPasswordMessage.isDisplayed());
     }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     * Closes the browser.
+     */
+    @AfterMethod
+    public void tearDown() {
+        Driver.closeDriver();
+    }
+
 }
 /*
 TC #7: Required field error message test
