@@ -23,15 +23,6 @@ public class JavaScriptExecutorPractice {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for scrolling using JavaScriptExecutor.
      */
     @Test
@@ -50,6 +41,15 @@ public class JavaScriptExecutorPractice {
             BrowserUtils.sleep(1);
             js.executeScript("window.scrollBy(0,-750)");
         }
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

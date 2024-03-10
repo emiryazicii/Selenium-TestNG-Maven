@@ -1,12 +1,9 @@
 package com.emir.tests.lesson04_findElements_checkboxes_radiobuttons;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
 import java.util.List;
 
 /**
@@ -14,22 +11,13 @@ import java.util.List;
  */
 public class Find_Elements_Task {
 
-    /**
-     * This is the main method which executes the test case.
-     * @param args Unused.
-     */
     public static void main(String[] args) {
 
-        // Setting up the WebDriver
-        WebDriver driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
         // Opening the specified URL
-        driver.get(ConfigurationReader.getProperty("env.abtest"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.abtest"));
 
         // Locating all the links on the page using tagName
-        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        List<WebElement> allLinks = Driver.getDriver().findElements(By.tagName("a"));
 
         // Printing out the number of links on the page
         System.out.println("Number of the links = " + allLinks.size());
@@ -41,7 +29,7 @@ public class Find_Elements_Task {
         }
 
         // Quitting the WebDriver
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

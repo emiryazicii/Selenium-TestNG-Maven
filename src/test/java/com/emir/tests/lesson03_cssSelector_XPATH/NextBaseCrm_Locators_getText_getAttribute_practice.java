@@ -1,33 +1,22 @@
 package com.emir.tests.lesson03_cssSelector_XPATH;
 
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class demonstrates the usage of locators, getText(), and getAttribute() methods in NextBaseCRM login page.
  */
 public class NextBaseCrm_Locators_getText_getAttribute_practice {
 
-    /**
-     * The main method to execute the verification of text and attribute values for elements in NextBaseCRM login page.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the NextBaseCRM login page
-        driver.get(ConfigurationReader.getProperty("env.crm"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.crm"));
 
         // Verify the text of the "remember me" label
-        WebElement text = driver.findElement(By.className("login-item-checkbox-label"));
+        WebElement text = Driver.getDriver().findElement(By.className("login-item-checkbox-label"));
         if (text.getText().equals(ConfigurationReader.getProperty("expected.data.crm"))){
             System.out.println("Remember Me Label Text Verification Passed!");
         }else {
@@ -35,7 +24,7 @@ public class NextBaseCrm_Locators_getText_getAttribute_practice {
         }
 
         // Verify the text of the "forgot password" link
-        WebElement link = driver.findElement(By.partialLinkText("FORGOT"));
+        WebElement link = Driver.getDriver().findElement(By.partialLinkText("FORGOT"));
         System.out.println("Forgot Password Link Text: " + link.getText());
         if(link.getText().equals(ConfigurationReader.getProperty("expected.data.crm2"))){
             System.out.println("Forgot Password Link Text Verification Passed!");
@@ -51,7 +40,7 @@ public class NextBaseCrm_Locators_getText_getAttribute_practice {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

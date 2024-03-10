@@ -24,15 +24,6 @@ public class UploadTest {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for uploading a file.
      */
     @Test
@@ -48,6 +39,15 @@ public class UploadTest {
         // Verifying if the file uploaded header is displayed
         WebElement fileUploadedHeader = Driver.getDriver().findElement(By.xpath("//h3"));
         Assert.assertTrue(fileUploadedHeader.isDisplayed());
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

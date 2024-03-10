@@ -1,24 +1,19 @@
 package com.emir.tests.lesson06_alerts_iframes_windows;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 import java.util.Set;
 
 /**
  * Test class to demonstrate window handling.
  */
 public class Window_Handle_Practice {
-
-    WebDriver driver;
 
     /**
      * Setup method to initialize WebDriver, maximize window, set implicit wait,
@@ -27,22 +22,7 @@ public class Window_Handle_Practice {
     @BeforeMethod
     public void setupMethod(){
 
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-        driver.get(ConfigurationReader.getProperty("env.windows"));
-    }
-
-    /**
-     * Teardown method to quit the WebDriver instance after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-
-        driver.quit();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.windows"));
     }
 
     /**
@@ -62,28 +42,39 @@ public class Window_Handle_Practice {
     @Test
     public void testing_windows(){
 
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         Assert.assertEquals(currentTitle, ConfigurationReader.getProperty("expected.data.windows"));
 
-        String mainHandle = driver.getWindowHandle();
+        String mainHandle = Driver.getDriver().getWindowHandle();
 
-        WebElement link = driver.findElement(By.xpath("//a[.='Click Here']"));
+        WebElement link = Driver.getDriver().findElement(By.xpath("//a[.='Click Here']"));
 
         link.click();
 
-        Set<String> allHandles = driver.getWindowHandles();
+        Set<String> allHandles = Driver.getDriver().getWindowHandles();
 
         allHandles.remove(mainHandle);
 
         for (String each : allHandles) {
-            driver.switchTo().window(each);
+            Driver.getDriver().switchTo().window(each);
         }
 
-        currentTitle = driver.getTitle();
+        currentTitle = Driver.getDriver().getTitle();
 
         Assert.assertEquals(currentTitle, ConfigurationReader.getProperty("expected.data.windows2"));
 
-        driver.switchTo().window(mainHandle);
+        Driver.getDriver().switchTo().window(mainHandle);
     }
+
+    /**
+     * Teardown method to quit the WebDriver instance after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+
+        Driver.closeDriver();
+    }
+
+
 }

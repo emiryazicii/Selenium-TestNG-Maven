@@ -1,24 +1,19 @@
 package com.emir.tests.lesson06_alerts_iframes_windows;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 /**
  * Test class to demonstrate handling different types of alerts.
  */
 public class AlertPractices {
-
-    WebDriver driver;
 
     /**
      * Setup method to initialize WebDriver, maximize window, set implicit wait,
@@ -27,22 +22,7 @@ public class AlertPractices {
     @BeforeMethod
     public void setupMethod(){
 
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-
-        driver.manage().window().maximize();
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
-        driver.get(ConfigurationReader.getProperty("env.alerts"));
-    }
-
-    /**
-     * Teardown method to quit the WebDriver instance after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-
-        driver.quit();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.alerts"));
     }
 
     /**
@@ -56,15 +36,15 @@ public class AlertPractices {
     @Test
     public void testing_information_alert(){
 
-        WebElement informationAlert = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
+        WebElement informationAlert = Driver.getDriver().findElement(By.xpath("//button[@onclick='jsAlert()']"));
 
         informationAlert.click();
 
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.getDriver().switchTo().alert();
 
         alert.accept();
 
-        WebElement resultText = driver.findElement(By.cssSelector("p#result"));
+        WebElement resultText = Driver.getDriver().findElement(By.cssSelector("p#result"));
 
         Assert.assertTrue(resultText.isDisplayed());
     }
@@ -80,15 +60,15 @@ public class AlertPractices {
     @Test
     public void testing_confirmation_alert(){
 
-        WebElement confirmationAlert = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
+        WebElement confirmationAlert = Driver.getDriver().findElement(By.xpath("//button[@onclick='jsConfirm()']"));
 
         confirmationAlert.click();
 
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.getDriver().switchTo().alert();
 
         alert.accept();
 
-        WebElement resultText = driver.findElement(By.xpath("//p[text()='You clicked: Ok']"));
+        WebElement resultText = Driver.getDriver().findElement(By.xpath("//p[text()='You clicked: Ok']"));
 
         Assert.assertTrue(resultText.isDisplayed());
     }
@@ -105,19 +85,28 @@ public class AlertPractices {
     @Test
     public void testing_prompt_alert(){
 
-        WebElement promptAlert = driver.findElement(By.xpath("//button[@onclick='jsPrompt()']"));
+        WebElement promptAlert = Driver.getDriver().findElement(By.xpath("//button[@onclick='jsPrompt()']"));
 
         promptAlert.click();
 
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.getDriver().switchTo().alert();
 
         alert.sendKeys(ConfigurationReader.getProperty("sendKey.alert"));
 
         alert.accept();
 
-        WebElement resultText = driver.findElement(By.xpath("//p[.='You entered: hello']"));
+        WebElement resultText = Driver.getDriver().findElement(By.xpath("//p[.='You entered: hello']"));
 
         Assert.assertTrue(resultText.isDisplayed());
 
+    }
+
+    /**
+     * Teardown method to quit the WebDriver instance after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+
+       Driver.closeDriver();
     }
 }

@@ -1,34 +1,23 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class demonstrates searching on Google and verifying the title using Selenium WebDriver.
  */
 public class Google_Search {
 
-    /**
-     * The main method to execute the Google search test.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to Google homepage
-        driver.get(ConfigurationReader.getProperty("env.google"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.google"));
 
         // Find the search box element by its ID
-        WebElement searchBox = driver.findElement(By.name("q")); // Updated to use the correct ID
+        WebElement searchBox = Driver.getDriver().findElement(By.name("q")); // Updated to use the correct ID
 
         // Type the search data into the search box
         searchBox.sendKeys(ConfigurationReader.getProperty("searchData.google"));
@@ -37,7 +26,7 @@ public class Google_Search {
         searchBox.sendKeys(Keys.ENTER);
 
         // Get the current title of the page
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         // Verify if the title starts with the search data and print the result
         if(currentTitle.startsWith(ConfigurationReader.getProperty("searchData.google"))){
@@ -47,7 +36,7 @@ public class Google_Search {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

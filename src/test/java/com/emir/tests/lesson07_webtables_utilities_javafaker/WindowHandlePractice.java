@@ -3,15 +3,11 @@ package com.emir.tests.lesson07_webtables_utilities_javafaker;
 import com.emir.utilities.BrowserUtils;
 import com.emir.utilities.ConfigurationReader;
 import com.emir.utilities.Driver;
-import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 import java.util.Set;
 
 /**
@@ -27,15 +23,6 @@ public class WindowHandlePractice {
 
         // Navigate to Amazon website
         Driver.getDriver().get(ConfigurationReader.getProperty("env.amazon"));
-    }
-
-    /**
-     * Teardown method to quit the WebDriver after each test method execution.
-     */
-    @AfterMethod
-    public void TearDown() {
-        // Quit WebDriver
-        Driver.closeDriver();
     }
 
     /**
@@ -81,6 +68,15 @@ public class WindowHandlePractice {
 
         // Assert that the title contains "Etsy" using BrowserUtils
         Assert.assertTrue(BrowserUtils.switchWindowAndVerify("etsy", "Etsy"));
+    }
+
+    /**
+     * Teardown method to quit the WebDriver after each test method execution.
+     */
+    @AfterMethod
+    public void TearDown() {
+        // Quit WebDriver
+        Driver.closeDriver();
     }
 }
 /*

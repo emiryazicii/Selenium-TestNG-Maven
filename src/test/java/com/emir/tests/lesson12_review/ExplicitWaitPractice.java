@@ -29,15 +29,6 @@ public class ExplicitWaitPractice {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Close the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case to verify the functionality of removing a checkbox.
      */
     @Test
@@ -79,6 +70,15 @@ public class ExplicitWaitPractice {
 
         // Assert that the message text is as expected
         Assert.assertEquals(dynamicControlsPage.message.getText(), ConfigurationReader.getProperty("expected.message"));
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Close the browser
+        Driver.closeDriver();
     }
 }
 /*

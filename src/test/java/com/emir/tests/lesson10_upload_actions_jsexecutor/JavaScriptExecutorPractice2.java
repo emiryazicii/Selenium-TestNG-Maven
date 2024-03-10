@@ -25,15 +25,6 @@ public class JavaScriptExecutorPractice2 {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for scrolling to specific elements using JavaScriptExecutor.
      */
     @Test
@@ -56,6 +47,15 @@ public class JavaScriptExecutorPractice2 {
 
         // Scrolling to the Home link
         js.executeScript("arguments[0].scrollIntoView(true);", homeLink);
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

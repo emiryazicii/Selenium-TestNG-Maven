@@ -1,31 +1,20 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute;
 
 import com.emir.utilities.ConfigurationReader;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.emir.utilities.Driver;
 
 /**
  * This class verifies the URL and title of the Cydeo Practice Tool.
  */
 public class Cydeo_Practice_Tool_Verification {
 
-    /**
-     * The main method to execute the verification.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the Cydeo Practice Tool website
-        driver.get(ConfigurationReader.getProperty("env.practice"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.practice"));
 
         // Get the current URL
-        String currentURL = driver.getCurrentUrl();
+        String currentURL = Driver.getDriver().getCurrentUrl();
 
         // Verify if URL contains "cydeo" and print the result
         if(currentURL.contains(ConfigurationReader.getProperty("expectedData.cydeo2"))){
@@ -35,7 +24,7 @@ public class Cydeo_Practice_Tool_Verification {
         }
 
         // Get the current title
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         // Verify if title equals "Practice" and print the result
         if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.title"))){
@@ -45,7 +34,7 @@ public class Cydeo_Practice_Tool_Verification {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

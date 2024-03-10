@@ -1,34 +1,31 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.emir.utilities.Driver;
 
 /**
  * This class demonstrates basic navigations using Selenium WebDriver.
  */
 public class BasicNavigations {
 
-
      //Main method to demonstrate basic navigations.
     public static void main(String[] args) {
 
-        // Initialize ChromeDriver
-        WebDriver driver = new ChromeDriver();
-
         // Navigate to Etsy website
-        driver.get(ConfigurationReader.getProperty("env.etsy"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.etsy"));
 
         // Navigate to Amazon website
-        driver.navigate().to(ConfigurationReader.getProperty("env.amazon"));
+        Driver.getDriver().navigate().to(ConfigurationReader.getProperty("env.amazon"));
 
         // Navigate back to previous page (Etsy)
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
 
         // Navigate forward to next page (Amazon)
-        driver.navigate().forward();
+        Driver.getDriver().navigate().forward();
 
         // Refresh the current page (Amazon)
-        driver.navigate().refresh();
+        Driver.getDriver().navigate().refresh();
+
+        Driver.closeDriver();
     }
 }

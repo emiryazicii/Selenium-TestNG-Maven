@@ -2,12 +2,9 @@ package com.emir.tests.base;
 
 import com.emir.utilities.ConfigurationReader;
 import com.emir.utilities.Driver;
-import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
-import java.time.Duration;
 
 /**
  * This class serves as a base class for other test classes.

@@ -25,15 +25,6 @@ public class ScrollPractice {
     }
 
     /**
-     * Method to clean up the test environment after each test method.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Closing the browser
-        Driver.closeDriver();
-    }
-
-    /**
      * Test case for scrolling down to "Powered by CYDEO" and then scrolling back up to "Home" link.
      */
     @Test
@@ -49,6 +40,15 @@ public class ScrollPractice {
 
         // Scrolling up using PAGE_UP button twice to reach the "Home" link
         actions.sendKeys(Keys.PAGE_UP, Keys.PAGE_UP).perform();
+    }
+
+    /**
+     * Method to clean up the test environment after each test method.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Closing the browser
+        Driver.closeDriver();
     }
 }
 /*

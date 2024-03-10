@@ -1,45 +1,25 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
-import com.emir.utilities.WebDriverFactory;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 /**
  * This class demonstrates testing a multiple selection dropdown menu using the Select class.
  */
 public class MultipleSelectionDropdown {
 
-    WebDriver driver;
-
     /**
      * Setup method executed before each test method.
      */
     @BeforeMethod
     public void setupMethod(){
-        // Initialize WebDriver instance
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
-
-        // Maximize the browser window
-        driver.manage().window().maximize();
-
-        // Set the implicit wait timeout
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-    }
-
-    /**
-     * Teardown method executed after each test method.
-     */
-    @AfterMethod
-    public void tearDown(){
-        // Quit the WebDriver session
-        driver.quit();
+        // Navigate to the page with the multiple selection dropdown menu
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.dropdown"));
     }
 
     /**
@@ -47,11 +27,9 @@ public class MultipleSelectionDropdown {
      */
     @Test
     public void multiple_selection_dropdown_test(){
-        // Navigate to the page with the multiple selection dropdown menu
-        driver.get(ConfigurationReader.getProperty("env.dropdown"));
 
         // Initialize Select object with the dropdown element
-        Select multiSelect = new Select(driver.findElement(By.name("Languages")));
+        Select multiSelect = new Select(Driver.getDriver().findElement(By.name("Languages")));
 
         // Print whether the dropdown allows multiple selection
         System.out.println("multiSelect.isMultiple() = " + multiSelect.isMultiple());
@@ -63,5 +41,14 @@ public class MultipleSelectionDropdown {
 
         // Deselect all selected options
         multiSelect.deselectAll();
+    }
+
+    /**
+     * Teardown method executed after each test method.
+     */
+    @AfterMethod
+    public void tearDown(){
+        // Quit the WebDriver session
+        Driver.closeDriver();
     }
 }

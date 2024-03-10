@@ -1,34 +1,23 @@
 package com.emir.tests.lesson03_cssSelector_XPATH.extraPractices;
 
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class verifies the title of the Etsy website after searching for a specific item.
  */
 public class Etsy_Title_Verification {
 
-    /**
-     * The main method to execute the verification of the Etsy website title.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the Etsy website
-        driver.get(ConfigurationReader.getProperty("env.etsy"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.etsy"));
 
         // Find the search box element by XPath and enter the search query
-        WebElement searchBox = driver.findElement(By.xpath("//input[@id='global-enhancements-search-query']"));
+        WebElement searchBox = Driver.getDriver().findElement(By.xpath("//input[@id='global-enhancements-search-query']"));
         searchBox.sendKeys(ConfigurationReader.getProperty("searchData.etsy") + Keys.ENTER);
 
         //WebElement searchBox = driver.findElement(By.xpath("//input[@name='search_query']"));
@@ -38,7 +27,7 @@ public class Etsy_Title_Verification {
         //WebElement searchBox = driver.findElement(By.cssSelector("input[data-id='search-query']"));
 
         // Get the current title of the webpage
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         // Verify if the title matches the expected title
         if (currentTitle.equals(ConfigurationReader.getProperty("expectedData.etsy"))) {
@@ -48,7 +37,7 @@ public class Etsy_Title_Verification {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+       Driver.closeDriver();
     }
 }
 /*

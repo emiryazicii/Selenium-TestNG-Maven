@@ -1,6 +1,7 @@
 package com.emir.tests.quick_reviews;
 
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import com.emir.utilities.WebDriverFactory;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -17,21 +18,30 @@ import java.time.Duration;
  */
 public class JavaScriptAlerts {
 
-    WebDriver driver;
-
     /**
      * Setup method executed before each test method.
      */
     @BeforeMethod
     public void setupMethod(){
-        // Initialize WebDriver instance
-        driver = WebDriverFactory.getDriver(ConfigurationReader.getProperty("browser"));
+        // Navigate to the page with JavaScript alerts
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.alerts"));
+    }
 
-        // Maximize the browser window
-        driver.manage().window().maximize();
+    /**
+     * Test method to test handling JavaScript alerts.
+     */
+    @Test
+    public void js_alerts_test(){
 
-        // Set the implicit wait timeout
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        // Find the button to trigger the alert
+        WebElement jsAlert = Driver.getDriver().findElement(By.xpath("//button[@onclick='jsAlert()']"));
+
+        // Click on the button to trigger the alert
+        jsAlert.click();
+
+        // Switch to the alert and accept it
+        Alert alert = Driver.getDriver().switchTo().alert();
+        alert.accept();
     }
 
     /**
@@ -40,25 +50,6 @@ public class JavaScriptAlerts {
     @AfterMethod
     public void tearDown(){
         // Quit the WebDriver session
-        driver.quit();
-    }
-
-    /**
-     * Test method to test handling JavaScript alerts.
-     */
-    @Test
-    public void js_alerts_test(){
-        // Navigate to the page with JavaScript alerts
-        driver.get(ConfigurationReader.getProperty("env.alerts"));
-
-        // Find the button to trigger the alert
-        WebElement jsAlert = driver.findElement(By.xpath("//button[@onclick='jsAlert()']"));
-
-        // Click on the button to trigger the alert
-        jsAlert.click();
-
-        // Switch to the alert and accept it
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
+        Driver.closeDriver();
     }
 }

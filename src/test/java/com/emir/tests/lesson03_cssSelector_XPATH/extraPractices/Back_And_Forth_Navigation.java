@@ -1,41 +1,30 @@
 package com.emir.tests.lesson03_cssSelector_XPATH.extraPractices;
 
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class verifies the back and forth navigation between Google and Gmail.
  */
 public class Back_And_Forth_Navigation {
 
-    /**
-     * The main method to execute the back and forth navigation verification.
-     * @param args Command line arguments (not used in this example).
-     */
     public static void main(String[] args) {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to the Google website
-        driver.get(ConfigurationReader.getProperty("env.google"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.google"));
 
         //WebElement link = driver.findElement(By.xpath("//a[@href='https://mail.google.com/mail/&ogbl']"));
 
         //WebElement link = driver.findElement(By.xpath("//a[text()='Gmail']"));
 
         // Find the Gmail link by CSS selector and click on it
-        WebElement link = driver.findElement(By.cssSelector("a[href='https://mail.google.com/mail/&ogbl']"));
+        WebElement link = Driver.getDriver().findElement(By.cssSelector("a[href='https://mail.google.com/mail/&ogbl']"));
         link.click();
 
         // Verify if the title contains "Gmail"
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
         if(currentTitle.contains(ConfigurationReader.getProperty("expectedData.google"))){
             System.out.println("Title Contains 'Gmail' Verification Passed!");
         } else {
@@ -43,10 +32,10 @@ public class Back_And_Forth_Navigation {
         }
 
         // Navigate back to Google using the browser's back function
-        driver.navigate().back();
+        Driver.getDriver().navigate().back();
 
         // Verify if the title equals "Google" after navigating back
-        currentTitle = driver.getTitle();
+        currentTitle = Driver.getDriver().getTitle();
         if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.google2"))){
             System.out.println("Title Equals 'Google' Verification Passed!");
         } else {
@@ -54,7 +43,7 @@ public class Back_And_Forth_Navigation {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*

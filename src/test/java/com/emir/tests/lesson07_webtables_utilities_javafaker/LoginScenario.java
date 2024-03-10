@@ -2,14 +2,11 @@ package com.emir.tests.lesson07_webtables_utilities_javafaker;
 
 import com.emir.utilities.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 /**
  * A test class for testing the login scenario on a CRM website.
@@ -25,15 +22,6 @@ public class LoginScenario {
         // Navigate to CRM website
         Driver.getDriver().get(ConfigurationReader.getProperty("env.crm"));
 
-    }
-
-    /**
-     * Teardown method to quit the WebDriver after each test method execution.
-     */
-    @AfterMethod
-    public void tearDown() {
-        // Quit WebDriver
-        Driver.closeDriver();
     }
 
     /**
@@ -88,6 +76,14 @@ public class LoginScenario {
     }
 
 
+    /**
+     * Teardown method to quit the WebDriver after each test method execution.
+     */
+    @AfterMethod
+    public void tearDown() {
+        // Quit WebDriver
+        Driver.closeDriver();
+    }
 }
 /*
 TC #4: Login scenario

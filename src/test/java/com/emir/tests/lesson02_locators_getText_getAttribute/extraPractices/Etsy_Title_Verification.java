@@ -1,45 +1,34 @@
 package com.emir.tests.lesson02_locators_getText_getAttribute.extraPractices;
 
+import com.emir.utilities.BrowserUtils;
 import com.emir.utilities.ConfigurationReader;
+import com.emir.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * This class verifies the title of the Etsy website after searching for a specific item.
  */
 public class Etsy_Title_Verification {
 
-    /**
-     * The main method to execute the title verification test for Etsy.
-     * @param args Command line arguments (not used in this example).
-     * @throws InterruptedException if the thread sleep is interrupted.
-     */
     public static void main(String[] args) throws InterruptedException {
 
-        // Create a ChromeDriver instance
-        WebDriver driver = new ChromeDriver();
-
-        // Maximize the window for better visibility
-        driver.manage().window().maximize();
-
         // Navigate to Etsy website
-        driver.get(ConfigurationReader.getProperty("env.etsy"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("env.etsy"));
 
         // Wait for 5 seconds for the page to load
-        Thread.sleep(5000);
+        BrowserUtils.sleep(5);
 
         // Find the search box element and enter the search query
-        WebElement searchBox = driver.findElement(By.id("global-enhancements-search-query"));
+        WebElement searchBox = Driver.getDriver().findElement(By.id("global-enhancements-search-query"));
         searchBox.sendKeys(ConfigurationReader.getProperty("searchData.etsy") + Keys.ENTER);
 
         // Wait for 3 seconds for the search results to load
-        Thread.sleep(3000);
+        BrowserUtils.sleep(3);
 
         // Get the current title of the page
-        String currentTitle = driver.getTitle();
+        String currentTitle = Driver.getDriver().getTitle();
 
         // Verify if the title matches the expected title
         if(currentTitle.equals(ConfigurationReader.getProperty("expectedData.etsy"))){
@@ -49,7 +38,7 @@ public class Etsy_Title_Verification {
         }
 
         // Quit the WebDriver session
-        driver.quit();
+        Driver.closeDriver();
     }
 }
 /*
