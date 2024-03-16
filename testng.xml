@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/emirt/IdeaProjects/Selenium-TestNG-Maven/src/test/java/com/emir/tests">
+        <classes>
+            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Cydeo_Title_Verification">
+                <methods>
+                    <include name="cydeo_title_verification"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Select_Date_On_Dropdown">
+                <methods>
+                    <include name="dateDropdown_Test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Select_State_On_Dropdown">
+                <methods>
+                    <include name="select_state_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Selecting_Value_On_NonSelected_Dropdown">
+                <methods>
+                    <include name="non_select_dropdown_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.SimpleDropdown_And_StateSelection">
+                <methods>
+                    <include name="simple_dropdown_test"/>
+                    <include name="state_selection_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson06_alerts_iframes_windows.AlertPractices">
+                <methods>
+                    <include name="testing_information_alert"/>
+                    <include name="testing_confirmation_alert"/>
+                    <include name="testing_prompt_alert"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson06_alerts_iframes_windows.Iframe_Practice">
+                <methods>
+                    <include name="testing_iframe"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson06_alerts_iframes_windows.Window_Handle_Practice">
+                <methods>
+                    <include name="testing_windows"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson07_webtables_utilities_javafaker.LoginScenario">
+                <methods>
+                    <include name="test_login"/>
+                    <include name="test_login2"/>
+                    <include name="testing_login3"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.lesson07_webtables_utilities_javafaker.WindowHandlePractice">
+                <methods>
+                    <include name="testing_window_handles"/>
+                    <include name="testing_window_handles2"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.lesson08_properties_config_reader.GoogleSearch">
+                <methods>
+                    <include name="google_search_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson08_properties_config_reader.WebTablePractice">
+                <methods>
+                    <include name="testing_webTables"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson08_properties_config_reader.WebTableUtilsMethodPractice3">
+                <methods>
+                    <include name="testing_email_cell"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson08_properties_config_reader.WebTableUtilsMethodTest">
+                <methods>
+                    <include name="testing_order_date"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson08_properties_config_reader.WebTableUtilsMethodTest2">
+                <methods>
+                    <include name="testing_order_date"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson09_review_javafaker_driverUtil.BingSearch">
+                <methods>
+                    <include name="test_bing_search"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson09_review_javafaker_driverUtil.DriverUtilPractice">
+                <methods>
+                    <include name="test_bing_search"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson09_review_javafaker_driverUtil.JavaFakerPractice">
+                <methods>
+                    <include name="java_faker_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson09_review_javafaker_driverUtil.SingletonPractice">
+                <methods>
+                    <include name="singleton_understanding_test1"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson10_upload_actions_jsexecutor.HoverTest">
+                <methods>
+                    <include name="testing_hover"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson10_upload_actions_jsexecutor.JavaScriptExecutorPractice">
+                <methods>
+                    <include name="test_jsExecutor"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson10_upload_actions_jsexecutor.JavaScriptExecutorPractice2">
+                <methods>
+                    <include name="test_jsExecutor"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson10_upload_actions_jsexecutor.RegistrationForm">
+                <methods>
+                    <include name="testing_registration_form"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson10_upload_actions_jsexecutor.ScrollPractice">
+                <methods>
+                    <include name="test_scroll"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.lesson10_upload_actions_jsexecutor.UploadTest">
+                <methods>
+                    <include name="testing_upload"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.lesson11_pom_explicit_waits.ActionsPractices">
+                <methods>
+                    <include name="test_default_text"/>
+                    <include name="test_text_after_drag_and_drop"/>
+                    <include name="test_text_after_click_and_hold"/>
+                    <include name="test_text_after_drag_and_drop_outside_of_the_big_circle"/>
+                    <include name="test_text_after_drag_and_hold_inside_of_the_big_circle"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.lesson11_pom_explicit_waits.ExplicitWaitPractice">
+                <methods>
+                    <include name="test_wait_until_title_change"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.lesson11_pom_explicit_waits.POM_Practices">
+                <methods>
+                    <include name="test_required_field_error_message"/>
+                    <include name="test_invalid_email_format_error_message"/>
+                    <include name="test_wrong_email_or_password_error_message"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.lesson12_review.DoubleClick_Practice">
+                <methods>
+                    <include name="test_double_click"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.lesson12_review.ExplicitWaitPractice">
+                <methods>
+                    <include name="test_remove_checkbox"/>
+                    <include name="test_enable_input_box"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.quick_reviews.BeforeAndAfterClassAnnotations">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.BeforeAndAfterMethodAnnotations">
+                <methods>
+                    <include name="test1"/>
+                    <include name="test2"/>
+                    <include name="test3"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.DragAndDrop">
+                <methods>
+                    <include name="drag_and_drop_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.ExplicitWait">
+                <methods>
+                    <include name="explicit_wait_test"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.quick_reviews.FileUpload">
+                <methods>
+                    <include name="file_upload_test"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.quick_reviews.HoverOver">
+                <methods>
+                    <include name="hover_over_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.HtmlDropdown">
+                <methods>
+                    <include name="html_dropdown_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.Iframe">
+                <methods>
+                    <include name="iframe_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.JavaFaker">
+                <methods>
+                    <include name="java_faker_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.JavaScriptAlerts">
+                <methods>
+                    <include name="js_alerts_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.JsExecutorScrolling">
+                <methods>
+                    <include name="js_executor_scrolling_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.MultipleSelectionDropdown">
+                <methods>
+                    <include name="multiple_selection_dropdown_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.PageObjectModel">
+                <methods>
+                    <include name="login_page_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.RightClick">
+                <methods>
+                    <include name="right_click_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.SelectDropdown">
+                <methods>
+                    <include name="select_dropdown_test"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.quick_reviews.SoftAndHardAssertions">
+                <methods>
+                    <include name="hardAssertionTest"/>
+                    <include name="softAssertionTest"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.quick_reviews.TestNG_DataProvider">
+                <methods>
+                    <include name="test_google_search"/>
+                </methods>
+            </class>
+            <!--<class name="com.emir.tests.quick_reviews.TestNG_Intro">
+                <methods>
+                    <include name="testTwoPlusFive"/>
+                    <include name="testApple"/>
+                </methods>
+            </class>-->
+            <class name="com.emir.tests.quick_reviews.WebTables">
+                <methods>
+                    <include name="webTable_test"/>
+                </methods>
+            </class>
+            <class name="com.emir.tests.quick_reviews.WindowHandling">
+                <methods>
+                    <include name="window_handling_test"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
