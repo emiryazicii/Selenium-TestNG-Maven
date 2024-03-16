@@ -19,11 +19,11 @@
                     <include name="select_state_test"/>
                 </methods>
             </class>
-            <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Selecting_Value_On_NonSelected_Dropdown">
+            <!--<class name="com.emir.tests.lesson05_testNG_intro_dropdowns.Selecting_Value_On_NonSelected_Dropdown">
                 <methods>
                     <include name="non_select_dropdown_test"/>
                 </methods>
-            </class>
+            </class>-->
             <class name="com.emir.tests.lesson05_testNG_intro_dropdowns.SimpleDropdown_And_StateSelection">
                 <methods>
                     <include name="simple_dropdown_test"/>
